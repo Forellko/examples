@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './style.css';
 
 function Flex() {
-  const [direction, setDirection] = useState('');
+  const [direction, setDirection] = useState('flex-row');
 
   return (
     <>

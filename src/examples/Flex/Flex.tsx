@@ -12,15 +12,41 @@ function Flex() {
         <div className="bg-blue-600 w-10 h-10"></div>
       </div>
       <div className="flex justify-between">
-        <div className="p-10">
-          <div>flex-direction:</div>
+        <div className="flex flex-col p-10">
+          <h2>flex-direction:</h2>
           <button
-            className="p-10 border border-solid border-1 border-green-600"
-            onClick={() =>
-              setDirection(direction === 'flex-row' ? 'flex-col' : 'flex-row')
-            }
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              direction === 'flex-row' && 'bg-green-300'
+            }`}
+            onClick={() => setDirection('flex-row')}
           >
-            {direction === 'flex-row' ? 'row' : 'column'}
+            row
+          </button>
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              direction === 'flex-col' && 'bg-green-300'
+            }`}
+            onClick={() => setDirection('flex-col')}
+          >
+            column
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              direction === 'flex-row-reverse' && 'bg-green-300'
+            }`}
+            onClick={() => setDirection('flex-row-reverse')}
+          >
+            row-reverse
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              direction === 'flex-col-reverse' && 'bg-green-300'
+            }`}
+            onClick={() => setDirection('flex-col-reverse')}
+          >
+            column-reverse
           </button>
         </div>
       </div>

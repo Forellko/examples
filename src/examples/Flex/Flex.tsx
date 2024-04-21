@@ -104,20 +104,20 @@ function Flex() {
 
           <button
             className={`p-10 border border-solid border-1 border-green-600 ${
-              justifyContent === 'justify-end' && 'bg-green-300'
-            }`}
-            onClick={() => setJustifyContent('justify-end')}
-          >
-            flex-end
-          </button>
-
-          <button
-            className={`p-10 border border-solid border-1 border-green-600 ${
               justifyContent === 'justify-center' && 'bg-green-300'
             }`}
             onClick={() => setJustifyContent('justify-center')}
           >
             center
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              justifyContent === 'justify-end' && 'bg-green-300'
+            }`}
+            onClick={() => setJustifyContent('justify-end')}
+          >
+            flex-end
           </button>
 
           <button
@@ -143,20 +143,20 @@ function Flex() {
 
           <button
             className={`p-10 border border-solid border-1 border-green-600 ${
-              alignItems === 'items-end' && 'bg-green-300'
-            }`}
-            onClick={() => setAlignItems('items-end')}
-          >
-            flex-end
-          </button>
-
-          <button
-            className={`p-10 border border-solid border-1 border-green-600 ${
               alignItems === 'items-center' && 'bg-green-300'
             }`}
             onClick={() => setAlignItems('items-center')}
           >
             center
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              alignItems === 'items-end' && 'bg-green-300'
+            }`}
+            onClick={() => setAlignItems('items-end')}
+          >
+            flex-end
           </button>
         </div>
       </div>

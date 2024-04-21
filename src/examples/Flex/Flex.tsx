@@ -17,6 +17,7 @@ function Flex() {
   const [alignItems, setAlignItems] = useState('items-start');
   const [width, setWidth] = useState('50');
   const [height, setHeight] = useState('200');
+  const [wrap, setWrap] = useState('flex-nowrap');
   const flexRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function Flex() {
       {/* Blocks */}
       <div
         ref={flexRef}
-        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent} ${alignItems}`}
+        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent} ${alignItems} ${wrap}`}
       >
         {blocks.map((el, index) => (
           <div
@@ -197,6 +198,30 @@ function Flex() {
             onClick={() => setAlignItems('items-end')}
           >
             flex-end
+          </button>
+        </div>
+        {/* flex wrap */}
+        <div className="flex flex-col p-10">
+          <h2>flex-wrap:</h2>
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              wrap === 'flex-nowrap' && 'bg-green-300'
+            }`}
+            onClick={() => {
+              setWrap('flex-nowrap');
+            }}
+          >
+            nowrap
+          </button>
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              wrap === 'flex-wrap' && 'bg-green-300'
+            }`}
+            onClick={() => {
+              setWrap('flex-wrap');
+            }}
+          >
+            wrap
           </button>
         </div>
       </div>

@@ -3,6 +3,7 @@ import './style.css';
 
 function Flex() {
   const [direction, setDirection] = useState('flex-row');
+  const [justifyContent, setJustifyContent] = useState('justify-start');
   const [width, setWidth] = useState('20');
   const [height, setHeight] = useState('100');
   const flexRef = useRef<HTMLDivElement>(null);
@@ -16,7 +17,7 @@ function Flex() {
     <>
       <div
         ref={flexRef}
-        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction}`}
+        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent}`}
       >
         <div className="bg-red-600 w-10 h-10"></div>
         <div className="bg-green-600 w-10 h-10"></div>
@@ -82,6 +83,44 @@ function Flex() {
             onClick={() => setDirection('flex-col-reverse')}
           >
             column-reverse
+          </button>
+        </div>
+        <div className="flex flex-col p-10">
+          <h2>justify-content:</h2>
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              justifyContent === 'justify-start' && 'bg-green-300'
+            }`}
+            onClick={() => setJustifyContent('justify-start')}
+          >
+            flex-start
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              justifyContent === 'justify-end' && 'bg-green-300'
+            }`}
+            onClick={() => setJustifyContent('justify-end')}
+          >
+            flex-end
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              justifyContent === 'justify-center' && 'bg-green-300'
+            }`}
+            onClick={() => setJustifyContent('justify-center')}
+          >
+            center
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600  ${
+              justifyContent === 'justify-between' && 'bg-green-300'
+            }`}
+            onClick={() => setJustifyContent('justify-between')}
+          >
+            space-between
           </button>
         </div>
       </div>

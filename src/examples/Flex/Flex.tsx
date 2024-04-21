@@ -8,6 +8,7 @@ function Flex() {
   const [width, setWidth] = useState('50');
   const [height, setHeight] = useState('200');
   const flexRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!flexRef.current) return;
     flexRef.current.style.width = width + '%';
@@ -52,6 +53,15 @@ function Flex() {
             />
           </div>
         </div>
+        {/* add element */}
+        <div className="flex flex-col p-10">
+          <h2>Add block:</h2>
+          <input type="color" name="color" id="color" />
+          <button className="border-solid border-2 border-green-500">
+            Create
+          </button>
+        </div>
+
         {/* flex direction */}
         <div className="flex flex-col p-10">
           <h2>flex-direction:</h2>

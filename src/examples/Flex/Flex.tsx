@@ -4,8 +4,9 @@ import './style.css';
 function Flex() {
   const [direction, setDirection] = useState('flex-row');
   const [justifyContent, setJustifyContent] = useState('justify-start');
-  const [width, setWidth] = useState('20');
-  const [height, setHeight] = useState('100');
+  const [alignItems, setAlignItems] = useState('items-start');
+  const [width, setWidth] = useState('50');
+  const [height, setHeight] = useState('200');
   const flexRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!flexRef.current) return;
@@ -17,7 +18,7 @@ function Flex() {
     <>
       <div
         ref={flexRef}
-        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent}`}
+        className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent} ${alignItems}`}
       >
         <div className="bg-red-600 w-10 h-10"></div>
         <div className="bg-green-600 w-10 h-10"></div>
@@ -121,6 +122,35 @@ function Flex() {
             onClick={() => setJustifyContent('justify-between')}
           >
             space-between
+          </button>
+        </div>
+        <div className="flex flex-col p-10">
+          <h2>align-items: </h2>
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              alignItems === 'items-start' && 'bg-green-300'
+            }`}
+            onClick={() => setAlignItems('items-start')}
+          >
+            flex-start
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              alignItems === 'items-end' && 'bg-green-300'
+            }`}
+            onClick={() => setAlignItems('items-end')}
+          >
+            flex-end
+          </button>
+
+          <button
+            className={`p-10 border border-solid border-1 border-green-600 ${
+              alignItems === 'items-center' && 'bg-green-300'
+            }`}
+            onClick={() => setAlignItems('items-center')}
+          >
+            flex-center
           </button>
         </div>
       </div>

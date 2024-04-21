@@ -4,7 +4,7 @@ import './style.css';
 function Flex() {
   const [direction, setDirection] = useState('flex-row');
   const [width, setWidth] = useState('20');
-  const [height, setHeight] = useState('20');
+  const [height, setHeight] = useState('100');
   const flexRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!flexRef.current) return;

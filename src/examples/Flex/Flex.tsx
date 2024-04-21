@@ -3,10 +3,14 @@ import './style.css';
 
 function Flex() {
   const [direction, setDirection] = useState('flex-row');
+  const [width, setWidth] = useState('20');
+  const [height, setHeight] = useState('20');
   const flexRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!flexRef.current) return;
-  }, []);
+    flexRef.current.style.width = width + '%';
+    flexRef.current.style.height = height + 'px';
+  }, [width, height]);
 
   return (
     <>
@@ -21,8 +25,26 @@ function Flex() {
       <div className="flex justify-between">
         <div>
           <div>
-            <input type="range" name="width" id="range-width" />
-            <input type="range" name="height" id="range-height" />
+            <div>width</div>
+            <input
+              type="range"
+              name="width"
+              id="range-width"
+              onChange={(e) => setWidth(e.target.value)}
+              value={width}
+              min={20}
+              max={100}
+            />
+            <div>height</div>
+            <input
+              type="range"
+              name="height"
+              id="range-height"
+              onChange={(e) => setHeight(e.target.value)}
+              value={height}
+              min={100}
+              max={300}
+            />
           </div>
         </div>
         <div className="flex flex-col p-10">

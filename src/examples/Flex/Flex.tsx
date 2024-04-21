@@ -1,7 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import './style.css';
 
+interface IBlock {
+  color: string;
+}
+
 function Flex() {
+  const [blocks, setBlocks] = useState<IBlock[]>([
+    { color: '#ff0000' },
+    { color: '#00ff00' },
+    { color: '#0000ff' },
+  ]);
+  const [color, setColor] = useState('#000000');
   const [direction, setDirection] = useState('flex-row');
   const [justifyContent, setJustifyContent] = useState('justify-start');
   const [alignItems, setAlignItems] = useState('items-start');
@@ -22,9 +32,16 @@ function Flex() {
         ref={flexRef}
         className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent} ${alignItems}`}
       >
-        <div className="bg-red-600 w-10 h-10"></div>
-        <div className="bg-green-600 w-10 h-10"></div>
-        <div className="bg-blue-600 w-10 h-10"></div>
+        {blocks.map((el, index) => (
+          <div
+            key={index}
+            className={`w-10 h-10`}
+            style={{ backgroundColor: el.color }}
+            onClick={() => {
+              setBlocks(blocks.filter((e, ind) => ind !== index));
+            }}
+          ></div>
+        ))}
       </div>
       {/* Settings */}
       <div className="flex justify-between">
@@ -56,8 +73,21 @@ function Flex() {
         {/* add element */}
         <div className="flex flex-col p-10">
           <h2>Add block:</h2>
-          <input type="color" name="color" id="color" />
-          <button className="border-solid border-2 border-green-500">
+          <input
+            type="color"
+            name="color"
+            id="color"
+            value={color}
+            onChange={(e) => {
+              setColor(e.target.value);
+            }}
+          />
+          <button
+            className="border-solid border-2 border-green-500"
+            onClick={(e) => {
+              setBlocks([...blocks, { color: color }]);
+            }}
+          >
             Create
           </button>
         </div>

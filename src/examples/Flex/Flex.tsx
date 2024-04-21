@@ -16,6 +16,7 @@ function Flex() {
 
   return (
     <>
+      {/* Blocks */}
       <div
         ref={flexRef}
         className={`flex gap-2 w-[100%] p-10 bg-slate-300 ${direction} ${justifyContent} ${alignItems}`}
@@ -24,7 +25,9 @@ function Flex() {
         <div className="bg-green-600 w-10 h-10"></div>
         <div className="bg-blue-600 w-10 h-10"></div>
       </div>
+      {/* Settings */}
       <div className="flex justify-between">
+        {/* width and height */}
         <div>
           <div>
             <div>width</div>
@@ -49,6 +52,7 @@ function Flex() {
             />
           </div>
         </div>
+        {/* flex direction */}
         <div className="flex flex-col p-10">
           <h2>flex-direction:</h2>
           <button
@@ -86,6 +90,7 @@ function Flex() {
             column-reverse
           </button>
         </div>
+        {/* justify content */}
         <div className="flex flex-col p-10">
           <h2>justify-content:</h2>
           <button
@@ -124,6 +129,7 @@ function Flex() {
             space-between
           </button>
         </div>
+        {/* align items */}
         <div className="flex flex-col p-10">
           <h2>align-items: </h2>
           <button

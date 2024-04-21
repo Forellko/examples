@@ -150,7 +150,7 @@ function Flex() {
             }`}
             onClick={() => setAlignItems('items-center')}
           >
-            flex-center
+            center
           </button>
         </div>
       </div>

@@ -47,7 +47,7 @@ function Flex() {
       {/* Settings */}
       <div className="flex justify-between">
         {/* width and height */}
-        <div>
+        <div className="p-10">
           <div>
             <div>width</div>
             <input
